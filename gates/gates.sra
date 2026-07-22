@@ -21,4 +21,6 @@ NOR:
 	RETURN
 	
 XOR:
+
+OTHER GATE
 	
