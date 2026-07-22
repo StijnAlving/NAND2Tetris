@@ -31,7 +31,7 @@ for line in program_lines:
     opcode = parts[0]
 
     # check for empty line
-    if opcode == "":
+    if opcode == "" or "#":
         continue
 
     # check if its a label
@@ -95,16 +95,27 @@ while program[pc] != "HALT":
         number = program[pc]
         pc += 1
         stack.push(number)
-        
     elif opcode == "POP":
         stack.pop()
+    elif opcode == "DUP":
+        stack.push(stack.buf[stack.sp])
+    elif opcode == "SWAP":
+        a = stack.pop()
+        b = stack.pop()
+        stack.push(a)
+        stack.push(b)
+    elif opcode == "OVER":
+        b = stack.pop()
+        a = stack.top()
+        stack.push(b)
+        stack.push(a)
+        
     elif opcode == "PRINT":
         string_literal = program[pc]
         pc += 1
         print(string_literal)
-    elif opcode == "READ":
-        number = int(input())
-        stack.push(number)
+    elif opcode == "PRINT_STACK":
+        print(stack.buf[:stack.sp+1])
     elif opcode == "CALL":
         function_name = program[pc]
         pc += 1
@@ -112,13 +123,12 @@ while program[pc] != "HALT":
         pc = label_tracker[function_name]
     elif opcode == "RETURN":
         pc = call_stack.pop()
-    elif opcode == "PRINT_STACK":
-        print(stack.buf[:stack.sp+1])
+        
     elif opcode == "NAND":
         b = stack.pop()
         a = stack.pop()
-        
         stack.push(python_NAND(a,b))
+        
     else:
         print("Unexpected opcode received")
         exit(1)
