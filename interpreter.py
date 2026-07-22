@@ -109,6 +109,13 @@ while program[pc] != "HALT":
         a = stack.top()
         stack.push(b)
         stack.push(a)
+    elif opcode == "ROT"
+        c = stack.pop()
+        b = stack.pop()
+        a = stack.pop()
+        stack.push(c)
+        stack.push(a)
+        stack.push(b)
         
     elif opcode == "PRINT":
         string_literal = program[pc]
