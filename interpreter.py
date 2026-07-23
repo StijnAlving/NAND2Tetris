@@ -116,7 +116,7 @@ while program[pc] != "HALT":
         stack.push(c)
         stack.push(a)
         stack.push(b)
-        
+
     elif opcode == "PRINT":
         string_literal = program[pc]
         pc += 1

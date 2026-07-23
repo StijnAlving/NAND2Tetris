@@ -1,0 +1,26 @@
+NOT:
+	PINS:
+		IN1 a
+		OUT1 o
+	
+	PARTS:
+		NAND nand1
+	WIRING:
+		nand1.IN1 = a
+		nand1.IN2 = a
+		o = nand1.OUT1
+AND:
+	PINS:
+		IN1 a
+		IN2 b
+		OUT1 o
+	PARTS:
+		NAND nand1
+		NOT not1
+	WIRING:
+		nand1.IN1 = a
+		nand1.IN2 = b
+		not1.IN1 = nand1.OUT1
+		o = not1.OUT1
+
+
