@@ -31,7 +31,7 @@ for line in program_lines:
     opcode = parts[0]
 
     # check for empty line
-    if opcode == "" or "#":
+    if opcode == "" or opcode == "#":
         continue
 
     # check if its a label
@@ -109,7 +109,7 @@ while program[pc] != "HALT":
         a = stack.top()
         stack.push(b)
         stack.push(a)
-    elif opcode == "ROT"
+    elif opcode == "ROT":
         c = stack.pop()
         b = stack.pop()
         a = stack.pop()

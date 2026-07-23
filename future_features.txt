@@ -1,0 +1,10 @@
+Boolean Expression Engine
+-------------------------
+
+- Parse Boolean expressions
+- Generate truth tables
+- Compare two expressions
+- Produce counterexamples
+- Simplify expressions
+
+Parallelization of the stack to simulate real computer design.

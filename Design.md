@@ -5,4 +5,12 @@ OVER:
 ROT:
     Strictly necessary to build an XOR otherwise we cannot save intermediary results. (I've tried for several hours)
     
-    
+Multi-bit values
+    Bits are stored least-significant first.
+    Binary operators on multi-bit values expect operands to be interleaved.
+
+    Example:
+    A = 0111 : A3 A2 A1 A0
+    B = 0111 : B3 B2 B1 B0
+    Stack (bottom → top):
+    A3 B3 A2 B2 A1 B1 A0 B0
