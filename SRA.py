@@ -30,7 +30,7 @@ for line in program_lines:
     parts  = line.split(" ")
     opcode = parts[0]
 
-    # check for empty line
+    # check for empty line or comments
     if opcode == "" or opcode == "#":
         continue
 

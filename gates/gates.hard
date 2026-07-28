@@ -9,6 +9,7 @@ NOT:
 		nand1.IN1 = a
 		nand1.IN2 = a
 		o = nand1.OUT1
+END
 AND:
 	PINS:
 		IN1 a
@@ -22,5 +23,35 @@ AND:
 		nand1.IN2 = b
 		not1.IN1 = nand1.OUT1
 		o = not1.OUT1
-
+END
+OR:
+	PINS:
+		IN1 a
+		IN2 b
+		OUT1 o
+	PARTS:
+		NAND nand1
+		NOT not1
+		NOT not2
+	WIRING:
+		a = not1.IN1
+		b = not2.IN1
+		nand1.IN1 = not1.OUT1
+		nand1.IN2 = not2.OUT1
+		o = nand1.OUT1
+END
+NOR:
+	PINS:
+		IN1 a
+		IN2 b
+		OUT1 o
+	PARTS:
+		OR or1
+		NOT not1
+	WIRING:
+		a = or1.IN1
+		b = or1.IN2
+		or1.OUT1 = not1.IN1
+		not1.OUT1 = o
+END
 
